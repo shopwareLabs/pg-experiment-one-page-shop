@@ -1,0 +1,26 @@
+<div class="item" v-bind:class="{disabled: disabled}">
+    <div class="headline">
+        <div class="icon">1</div>
+        Personal Data
+    </div>
+    <div class="form-container">
+        <form v-on:submit="signIn">
+            <h5>I am already a customer</h5>
+            <email-input v-on:changed="inputChanged" v-bind:disabled="disabled"></email-input>
+            <password-input v-on:changed="inputChanged" v-bind:disabled="disabled"></password-input>
+
+            <h5>I am a new customer</h5>
+            <salutation-input v-on:changed="inputChanged" v-bind:disabled="disabled"></salutation-input>
+            <name-input v-on:changed="inputChanged" v-bind:disabled="disabled"></name-input>
+            <address-input v-on:changed="inputChanged" v-bind:countries="countries" v-bind:disabled="disabled"></address-input>
+            <email-input v-on:changed="inputChanged" v-bind:disabled="disabled"></email-input>
+            <password-input v-on:changed="inputChanged" v-bind:disabled="disabled"></password-input>
+            <phonenumber-input v-on:changed="inputChanged" v-bind:disabled="disabled"></phonenumber-input>
+
+            <div class="actions">
+                <button type="submit" class="btn btn-primary btn-block" v-bind:disabled="disabled"><i class="fa fa-lock"></i> Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

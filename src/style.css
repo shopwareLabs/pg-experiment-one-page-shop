@@ -1,0 +1,15 @@
+#app {
+    color: #2a3138;
+    font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.page-enter-active, .page-leave-active {
+    transition: transform 0.75s;
+}
+
+.page-enter {
+    transform: translate(100%);
+}
+.page-leave-active {
+    transform: translate(-100%);
+}

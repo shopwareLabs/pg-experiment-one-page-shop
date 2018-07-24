@@ -1,0 +1,34 @@
+.navigation {
+    width: 100%;
+    height: 60px;
+    background: #408DD2;
+}
+
+.navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: block;
+    float: left;
+}
+
+.navigation ul li a {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navigation ul li a i {
+    line-height: 60px;
+    font-size: 22px;
+}
+
+.navigation ul li a:hover {
+    background: #4496e0;
+}

@@ -1,0 +1,21 @@
+.input-radio input{
+    border-radius: 2px 2px 2px 2px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.input-radio {
+    position: relative;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.input-radio .radio {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 2px;
+    left: 0;
+}

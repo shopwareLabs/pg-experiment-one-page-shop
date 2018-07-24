@@ -1,0 +1,17 @@
+<div class="input">
+    <input type="text" class="form-control" name="" placeholder="Street" v-model="street"
+           v-on:change="inputChanged" v-bind:disabled="disabled">
+    <input class="form-control" type="number" placeholder="Number" min="0" v-model="streetNr"
+           v-on:change="inputChanged" v-bind:disabled="disabled"/>
+
+    <input type="text" class="form-control" name="" placeholder="ZIP" v-model="zipCode"
+           v-on:change="inputChanged" v-bind:disabled="disabled">
+
+    <input type="text" class="form-control" name="" placeholder="City" v-model="city" v-on:change="inputChanged"
+           v-bind:disabled="disabled">
+
+    <select class="form-control" title="country" v-bind:class="{default: defaultValue}" v-model="country" v-on:change="inputChanged" v-bind:disabled="disabled">
+        <option disabled selected hidden value="">Country</option>
+        <option v-if="countries" v-for="value in countries" v-bind:value="value.id">{{value.name}}</option>
+    </select>
+</div>

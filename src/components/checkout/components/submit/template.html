@@ -1,0 +1,34 @@
+<div class="item" v-if="cart" v-bind:class="{disabled: disabled}">
+    <div class="headline">
+        <div class="icon">3</div>
+        Orderoverview
+    </div>
+    <div class="form-container">
+        <h5>Summary</h5>
+
+        <line-item-box v-for="lineItem in cart.lineItems" :key="lineItem.identifier"
+                       v-bind:line-item="lineItem"></line-item-box>
+        <div class="amount-container">
+            Price: <span>{{(cart.price.positionPrice).toFixed(2)}} €</span>
+        </div>
+        <div class="amount-container">
+            Shipping: <span>{{(cart.deliveries[0].shippingCosts.totalPrice).toFixed(2)}} €</span>
+        </div>
+        <div class="amount-container amount-total">
+            Total: <span>{{(cart.price.totalPrice).toFixed(2)}} €</span>
+        </div>
+
+        <h5>Conditions</h5>
+
+        <div class="input-radio">
+            I have read the data privacy protection statement and give hereby my agreement for the collection, processing and use of my personal data for the completion of this inquiry.
+            <div class="checkbox">
+                <input type="checkbox" class="form-control" title="tos" name="tos" v-model="agree" v-bind:disabled="disabled">
+            </div>
+        </div>
+
+        <div class="actions actions-submit">
+            <button class="btn btn-primary btn-block" v-on:click="safeOrder" v-bind:disabled="disabled">Place My Order <i class="fa fa-angle-right"></i></button>
+        </div>
+    </div>
+</div>

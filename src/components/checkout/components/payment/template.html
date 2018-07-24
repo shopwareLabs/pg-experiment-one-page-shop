@@ -1,0 +1,12 @@
+<div class="item" v-bind:class="{disabled: disabled}">
+    <div class="headline">
+        <div class="icon">2</div>
+        Payment and Delivery
+    </div>
+    <div class="form-container">
+        <h5>choose payment method</h5>
+        <payment-method-box v-for="paymentMethod in paymentMethods" :key="paymentMethod.id"
+                            v-bind:payment-method="paymentMethod" v-on:input-changed="inputChanged"
+                            v-bind:disabled="disabled"></payment-method-box>
+    </div>
+</div>

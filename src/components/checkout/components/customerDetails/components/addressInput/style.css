@@ -1,0 +1,19 @@
+.input input{
+    border-radius: 2px 2px 2px 2px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.input input::placeholder {
+    color: #ccc;
+}
+
+.input select{
+    border-radius: 2px 2px 2px 2px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.input .default{
+    color: #ccc;
+}

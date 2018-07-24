@@ -1,0 +1,8 @@
+<div class="item" v-bind:class="{disabled: disabled}">
+    <div class="form-container">
+        <h5>Choose delivery Method</h5>
+        <shipping-method-box v-for="shippingMethod in shippingMethods" :key="shippingMethod.id"
+                             v-bind:shipping-method="shippingMethod" v-on:input-changed="inputChanged"
+                             v-bind:disabled="disabled"></shipping-method-box>
+    </div>
+</div>

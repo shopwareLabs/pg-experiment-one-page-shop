@@ -1,0 +1,9 @@
+<div class="product">
+    <div v-if="product">
+        <product-image v-bind:product="product"></product-image>
+        <product-content v-on:addToCart="addToCart" v-bind:product="product"></product-content>
+    </div>
+    <div v-else>
+        <spinner class="spinner" size="massive" message="Loading..."></spinner>
+    </div>
+</div>

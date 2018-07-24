@@ -1,0 +1,11 @@
+<div class="content">
+    <div class="productTitle"><h1>{{product.name}}</h1></div>
+    <div class="description">
+        <div class="productDescription">{{product.description}}</div>
+        <div class="productDescriptionLong" v-html="product.descriptionLong"></div>
+    </div>
+    <div class="item">
+        <div class="productPrice">{{product.price.gross}}€</div>
+        <buy v-on:submit="addToCart" v-bind:product="product"></buy>
+    </div>
+</div>

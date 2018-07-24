@@ -1,0 +1,15 @@
+.buy {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 5px;
+    width: 50%;
+}
+.buy .submit{
+    width: 75%;
+    float: right;
+}
+.buy .quantity {
+    float: left;
+    width: 25%;
+}

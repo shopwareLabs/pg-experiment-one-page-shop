@@ -1,0 +1,38 @@
+<div id="checkout">
+    <sweet-modal v-on:close="goBack" ref="success" icon="success">
+        Your Order has been placed!
+    </sweet-modal>
+    <sweet-modal v-on:close="goBack" ref="noCartFound" icon="error" title="No Cart found!">
+        No Cart found!
+    </sweet-modal>
+    <sweet-modal ref="invalidInput" icon="error" title="Invalid input!">
+        Check your inputs.
+    </sweet-modal>
+    <sweet-modal ref="loginFailed" icon="warning" title="Login failed!">
+        Wrong username or password!
+    </sweet-modal>
+
+    <div v-if="cart">
+        <product-container v-bind:product="cart.lineItems[0]"></product-container>
+        <div class="checkout-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <customer-details v-bind:countries="countries" v-on:login="login" v-on:register="register"
+                                          ref="customerDetails" v-bind:disabled="customerDetailsDisabled" v-bind:success="loginSuccess"></customer-details>
+                    </div>
+                    <div class="col-sm-4">
+                        <payment v-on:changed="paymentChanged" v-bind:payment-methods="paymentMethods" v-bind:disabled="paymentDisabled"></payment>
+                        <delivery v-on:changed="deliveryChanged" v-bind:shipping-methods="shippingMethods" v-bind:disabled="deliveryDisabled"></delivery>
+                    </div>
+                    <div class="col-sm-4">
+                        <submit v-on:safe-order="safeOrder" v-bind:cart="cart" v-bind:disabled="submitDisabled"></submit>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else>
+        <spinner class="spinner" size="massive" message="Loading..."></spinner>
+    </div>
+</div>
