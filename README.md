@@ -7,6 +7,9 @@
 *   NPM
 *   Shopware platform instance
 
+## Configuration
+
+*   Open the "src/config.js" and fill in your shopware playground url and your API access key.
 
 ## Build Setup
 
@@ -22,10 +25,11 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-```
-## Configuration
+``` 
 
-*   Open the "src/config.js" and fill in your shopware platform url and your API access key. 
+## Output
+
+*   Copy the output from the `dist` folder to your web server
 
 ## Usage
 
@@ -33,4 +37,3 @@ npm run build --report
 
 *   Landingpage: "yourdomain.com/#/?uuid=yourproductnumber"
 *   Checkout: "yourdomain.com/#/checkout?t=yourcartcontext"
-
