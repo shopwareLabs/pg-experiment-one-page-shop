@@ -117,7 +117,7 @@ function register(input) {
 function paymentChanged(paymentMethod) {
     let me = this;
 
-    api.setPaymentMethod(paymentMethod, function () {
+    api.setPaymentMethod(paymentMethod, me.contextToken, function () {
         me.paymentMethod = paymentMethod;
         me.paymentDisabled = true;
         me.deliveryDisabled = false;
@@ -127,7 +127,7 @@ function paymentChanged(paymentMethod) {
 function deliveryChanged(shippingMethodId) {
     let me = this;
 
-    api.setShippingMethod(shippingMethodId, function () {
+    api.setShippingMethod(shippingMethodId, me.contextToken, function () {
         me.deliveryDisabled = true;
         me.submitDisabled = false;
     });
