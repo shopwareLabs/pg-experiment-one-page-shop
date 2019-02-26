@@ -13,7 +13,7 @@ let api = {
     getCart: function (contextToken, callback) {
         axios({
             method: 'get',
-            url: api.url + '/storefront-api/checkout/cart',
+            url: api.url + '/storefront-api/v1/checkout/cart',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -28,7 +28,7 @@ let api = {
     newCustomer: function (data, callback) {
         axios({
             method: 'post',
-            url: api.url + '/storefront-api/customer',
+            url: api.url + '/storefront-api/v1/customer',
             crossDomain: true,
             crossOrigin: true,
             data: {
@@ -37,10 +37,10 @@ let api = {
                 lastName: data.lastName,
                 password: data.password,
                 email: data.email,
-                billingCountry: data.country,
-                billingZipcode: data.zipCode,
-                billingCity: data.city,
-                billingStreet: data.street,
+                'billingAddress.country': data.country,
+                'billingAddress.zipcode': data.zipCode,
+                'billingAddress.city': data.city,
+                'billingAddress.street': data.street,
                 phone: data.phonenumber
             },
             headers: {
@@ -56,7 +56,7 @@ let api = {
     loginCustomer: function (contextToken, data, callback) {
         axios({
             method: 'post',
-            url: api.url + '/storefront-api/customer/login',
+            url: api.url + '/storefront-api/v1/customer/login',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -77,7 +77,7 @@ let api = {
     logoutCustomer: function (contextToken) {
         axios({
             method: 'post',
-            url: api.url + '/storefront-api/customer/logout',
+            url: api.url + '/storefront-api/v1/customer/logout',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -90,7 +90,7 @@ let api = {
     safeOrder: function (contextToken, callback) {
         axios({
             method: 'post',
-            url: api.url + '/storefront-api/checkout/order',
+            url: api.url + '/storefront-api/v1/checkout/order',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -105,7 +105,7 @@ let api = {
     getProduct: function (uuid, callback) {
         axios({
             method: 'get',
-            url: api.url + '/storefront-api/product/' + uuid,
+            url: api.url + '/storefront-api/v1/product/' + uuid,
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -122,7 +122,7 @@ let api = {
     createCart: function (callback) {
         axios({
             method: 'post',
-            url: api.url + '/storefront-api/checkout/cart',
+            url: api.url + '/storefront-api/v1/checkout/cart',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -138,7 +138,7 @@ let api = {
     addLineItemToCart: function (contextToken, uuid, quantity, callback) {
         axios({
             method: 'post',
-            url: api.url + '/storefront-api/checkout/cart/line-item/' + uuid,
+            url: api.url + '/storefront-api/v1/checkout/cart/line-item/' + uuid,
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -162,7 +162,7 @@ let api = {
     getCountrys: function (callback) {
         axios({
             method: 'get',
-            url: api.url + '/storefront-api/sales-channel/countries',
+            url: api.url + '/storefront-api/v1/country',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -176,7 +176,7 @@ let api = {
     getPaymentMethods: function (callback) {
         axios({
             method: 'get',
-            url: api.url + '/storefront-api/sales-channel/payment-methods',
+            url: api.url + '/storefront-api/v1/payment-method',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -187,14 +187,15 @@ let api = {
         })
     },
 
-    setPaymentMethod: function (paymentMethodId, callback) {
+    setPaymentMethod: function (paymentMethodId, contextToken, callback) {
         axios({
-            method: 'put',
-            url: api.url + '/storefront-api/context',
+            method: 'patch',
+            url: api.url + '/storefront-api/v1/context',
             crossDomain: true,
             crossOrigin: true,
             headers: {
-                'x-sw-access-key': api.access_key
+                'x-sw-access-key': api.access_key,
+                'x-sw-context-token': contextToken
             },
             data: {
                 paymentMethodId
@@ -209,7 +210,7 @@ let api = {
     getShippingMethods: function (callback) {
         axios({
             method: 'get',
-            url: api.url + '/storefront-api/sales-channel/shipping-methods',
+            url: api.url + '/storefront-api/v1/shipping-method',
             crossDomain: true,
             crossOrigin: true,
             headers: {
@@ -222,14 +223,15 @@ let api = {
         })
     },
     
-    setShippingMethod: function (shippingMethodId, callback) {
+    setShippingMethod: function (shippingMethodId, contextToken, callback) {
         axios({
-            method: 'put',
-            url: api.url + '/storefront-api/context',
+            method: 'patch',
+            url: api.url + '/storefront-api/v1/context',
             crossDomain: true,
             crossOrigin: true,
             headers: {
-                'x-sw-access-key': api.access_key
+                'x-sw-access-key': api.access_key,
+                'x-sw-context-token': contextToken
             },
             data: {
                 shippingMethodId
